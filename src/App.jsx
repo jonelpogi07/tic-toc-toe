@@ -40,7 +40,7 @@ function deriveGameBoard(gameTurns) {
 }
 
 function deriveWinner(gameBoard, players) {
-  let winner;
+  let winner=null;
 
   for (const combination of WINNING_COMBINATIONS) {
     const firstSquareSymbol =
@@ -122,7 +122,7 @@ function App() {
         {(winner || hasDraw) && (
           <GameOver winner={winner} onRestart={handleRestart} />
         )}
-        <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
+        <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} winner={winner} />
       </div>
       <Log turns={gameTurns} />
     </main>

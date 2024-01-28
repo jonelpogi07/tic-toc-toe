@@ -1,19 +1,4 @@
-export default function GameBoard({ onSelectSquare, board }) {
-  
-
-  // const [gameBoard, setGameBoard] = useState(initialGameBoard);
-
-  // function handleSelectSquare(rowIndex, colIndex) {
-  //   setGameBoard((prevGameBoard) => {
-  //     const updatedBoard = [
-  //       ...prevGameBoard.map((innerArray) => [...innerArray]),
-  //     ];
-  //     updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
-  //     return updatedBoard;
-  //   });
-
-  //   onSelectSquare();
-  // }
+export default function GameBoard({ onSelectSquare, board, winner}) {
 
   return (
     <ol id="game-board">
@@ -24,7 +9,7 @@ export default function GameBoard({ onSelectSquare, board }) {
               <li key={colIndex}>
                 <button
                   onClick={() => onSelectSquare(rowIndex, colIndex)}
-                  disabled={playerSymbol !== null}>
+                  disabled={playerSymbol !== null || winner !== null}>
                   {playerSymbol}
                 </button>
               </li>
